@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Ivy Mae Photography</title>
+
+</head>
+
+<body>
+
+<!-- navigation and logo -->
+    
+    <div class="container"> <!-- making container div to be able to manipulate both the logo and navigation -->
+        <img class="logo" src="images/ivy-mae-logo(1).png" alt="logo">
+            
+            <nav>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav> 
+        </div>
+
+
+<!-- header - Ivy Chapel Description -->
+
+    <header>
+        <div class="title">
+            <h1>IVY CHAPEL</h1>
+                <p class="description">Hello, I'm Ivy Chapel. Photography has always been a passion of mine
+                    ,and to be able to make a living from it is a dream come true. Working with me, you can be 
+                    sure that any pictures you acquire from me are unique and amazing. Check out my portfolio in the gallery.</p>
+        </div>
+
+        <div class="crop"><!-- div to fit and crop the profile image -->
+            <img src="images/profile.jpg" alt="ivy">
+        </div>
+
+    </header>
+
+    <div class="scroll-box"><!-- box to fit the scroll down button and center it in its own space -->
+            <button class="scroll-down" onclick="window.location.href='#gallery'"></button>
+    </div>
+
+
+<!-- gallery section -->
+    
+    <section id="gallery"><!-- used id tag to be able to anchor the gallery section -->
+
+        <h2>GALLERY</h2>
+
+        <div class="options"><!-- a div tag to fit the links which will allow the images to be categorized -->
+
+            <a href="#gallery" data-filter="all" class="button active">ALL</a>
+            <a href="#gallery" data-filter="editorial" class="button">EDITORIAL</a>
+            <a href="#gallery" data-filter="portrait" class="button">PORTRAIT</a>
+            <a href="#gallery" data-filter="fashion" class="button">FASHION</a>
+        
+        </div>
+
+        <div class="img-container"><!-- making all the images fit in a single container div -->
+                  
+            <div class="filter editorial">
+                <img src="images/editorial/editorial1.jpg" alt="">
+            </div>       
+            <div class="filter editorial">
+                <img src="images/editorial/editorial2.jpg" alt="">
+            </div>       
+            <div class="filter editorial">
+                <img src="images/editorial/editorial3.jpg" alt="">
+            </div>       
+            <div class="filter editorial">
+                <img src="images/editorial/editorial4.jpg" alt="">
+            </div>       
+            <div class="filter editorial">
+                <img src="images/editorial/editorial5.jpg" alt="">
+            </div>          
+            <div class="filter portrait">
+                <img src="images/portrait/portrait1.jpg" alt="">
+            </div>       
+            <div class="filter portrait">
+                <img src="images/portrait/portrait2.jpg" alt="">
+            </div>       
+            <div class="filter portrait">
+                <img src="images/portrait/portrait3.jpg" alt="">
+            </div>       
+            <div class="filter portrait">
+                <img src="images/portrait/portrait4.jpg" alt="">
+            </div>       
+            <div class="filter portrait">
+                <img src="images/portrait/portrait5.jpg" alt="">
+            </div>       
+            <div class="filter fashion">
+                <img src="images/fashion/fashion1.jpg" alt="">
+            </div>       
+            <div class="filter fashion">
+                <img src="images/fashion/fashion2.jpg" alt="">
+            </div>       
+            <div class="filter fashion">
+                <img src="images/fashion/fashion3.jpg" alt="">
+            </div>       
+            <div class="filter fashion">
+                <img src="images/fashion/fashion4.jpg" alt="">
+            </div>       
+            <div class="filter fashion">
+               <img src="images/fashion/fashion5.jpg" alt="">
+            </div>       
+                            
+        </div>
+
+    </section>
+
+
+<!-- contact section -->
+
+    <section id="contact">
+        
+        <h3>CONTACT</h3>
+        <p class="subheading">Get in touch with me <br> and let's make some <br> beautiful work!</p>
+        
+        <div class="info">
+            <p> <strong>Email Address:</strong> ivychapel@gmail.com</p>
+            <p> <strong>Phone Number:</strong> (02) 9876 5432</p>
+            <p> <strong>Adress:</strong> 161 Sussex St, Sydney, NSW 2001</p>
+        </div>
+
+        <div class="icons-container">
+            <img src="images/facebook.svg" alt="">
+            <img src="images/instagram.svg" alt="">
+            <img src="images/twitter.svg" alt="">
+        </div>
+
+    </section>
+
+
+<!-- Disclaimer -->
+    
+    <footer>
+        <h4>DISCLAIMER</h4>
+            <p>This website has been created as part of an assignment in an approved course of study for Curtin
+                University and contains copyright material not created by the author. All copyright material used
+                remains copyright of the respective owners and has been used here pursuant to Section 40 of the
+                Copyright Act 1968 (Commonwealth of Australia). No part of this work may be reproduced without
+                consent of the original copyright owners. See code comments for references.</p>
+    </footer>
+
+
+<!--Javascript functions -->
+
+<!-- Creating filter functions for each image categories -->
+
+    <script src="https://code.jquery.com/jquery-3.4.0.js"></script> 
+    
+    <script>
+        $(document).ready(function(){
+            $(".button").click(function(){
+                var name = $(this).attr("data-filter");
+                if (name == "all"){
+                    $(".filter").show("2000");
+                }
+                else{
+                    $ (".filter").not("."+name).hide("2000");
+                    $ (".filter").filter("."+name).show("2000");
+                }
+            });
+
+            $(".options a").click(function(){
+                $(this).addClass("active").siblings().removeClass("active")
+            })
+        });
+    </script>
+
+<!-- stopping the browser from redirecting to gallery section after refresh and staying on homepage instead -->
+   
+   <script> 
+        window.onload = function() {
+            window.setTimeout(
+                function() { window.scrollTo(0,0); },
+                10
+            );
+        };
+    </script>
+
+
+<!-- creating a lightbox so that the images can be viewed full size after clicking on them, also having the 
+    ability to click on dark space to go back to the gallery -->
+   
+   <script>
+        
+        const lightbox = document.createElement('div')
+        lightbox.id = 'lightbox'
+        document.body.appendChild(lightbox)
+
+        const images = document.querySelectorAll('.img-container img')
+        images.forEach(image => {
+            image.addEventListener('click', e => {
+                lightbox.classList.add('active')
+                const img = document.createElement('img')
+                img.src = image.src
+           
+                while (lightbox.firstChild) {
+                lightbox.removeChild(lightbox.firstChild)
+                }    
+                lightbox.appendChild(img)
+
+            })
+        });
+
+        lightbox.addEventListener('click', e=> {
+            if (e.target !== e.currentTarget) return
+            lightbox.classList.remove('active')
+        })
+
+    </script>
+
+</body>
+
+</html>
+
+<!--
+    Comments - References 
+            
+        JS Foundation and other contributors. 2019. Filter Script. https://code.jquery.com/jquery-3.4.0.js 
+        
+        editorial 1:
+        Rondeau, Joshua. Woman In Black And White Checkered Dress Shirt. Image, 2021. https://unsplash.com/photos/AKb_YBi0rNY.
+
+        editorial 2:
+        Newman, Christian. Portrait Photography Of Woman Wearing Brown Headscarf. Image, 2021.https://unsplash.com/photos/f49XhYbpiA0.
+
+        editorial 3:
+        King, Adrien. HD Photo By Adrien King. Image, 2021. https://unsplash.com/photos/c-kYax-ROZhE.
+
+        editorial 4:
+        Miranda, Pedro. Woman In Black Dress Sitting On White Metal Bench. Image, 2021. https://unsplash.com/photos/nAJWJNh2UFI.
+
+        editorial 5:
+        Silva, Nicolas. Flower Photographer. Image, 2021. https://unsplash.com/photos/o2DVsV2PnHE.
+
+        portrait 1:
+        Shirvani, Hosein. Sanaz. Image, 2021. https://unsplash.com/photos/RoH656UZEgY.
+
+        portrait 2:
+        Cajina, Ivana. Smiling Woman Wearing Gray Hoodie. Image, 2021. https://unsplash.com/photos/dnL6ZIpht2s.
+
+        portrait 3:
+        Cleveland, Kyle. Woman With Brown Hair Covering Her Face With Her Hand. Image, 2021.https://unsplash.com/photos/X867EQRwF04.
+
+        portrait 4:
+        Martin, Philip. Man Standing Near Balcony. Image, 2021. https://unsplash.com/photos/5a-GUyCW_PJw.
+
+        portrait 5:
+        Buriss, Sam. Photo Of Man’s Face. Image, 2021. https://unsplash.com/photos/8wbxjJBrl3k.
+
+        fashion 1:
+        Carter, Ahmed. Posing Woman In White Sleeveless Top. Image, 2021. https://unsplash.com/photos/tiWcNvpQF4E.
+
+        fashion 2:
+        Jafari, Naeim. Woman Leaning To Woman Wearing Dresses. Image, 2021. https://unsplash.com/photos/laobUPA4jR8.
+
+        fashion 3:
+        Laderach, Yannic. Man Leaning Backwards On Grey White Metal Frame. Image, 2021.https://unsplash.com/photos/nwR9BCNgZJc.
+
+        fashion 4:
+        Silva, Monica. Woman In Purple Lace Knitted Long-Sleeved Dress. Image, 2021. https://unsplash.com/photos/VlMMBxSZuSI.
+
+        fashion 5:
+        Romano, Alexi. Woman Near Pigeons. Image, 2021. https://unsplash.com/photos/CCx-6Fz_CmOI.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
+   
